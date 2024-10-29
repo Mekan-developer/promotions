@@ -1,18 +1,20 @@
 <div>
     @props([
         'title' => 'SomeLink',
-        'icon'
+        'icon' => '',
+        'activeLink' => false,
+        'link' => ''
         ])
     <li>
-        <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+        <a href="{{ route($link) }}" wire:navigate class="{{ $activeLink ? 'dark:bg-gray-100 dark:text-gray-900 dark:hover:text-white' : 'text-gray-900 dark:text-white hover:bg-gray-100 ' }} flex items-center rounded-lg dark:hover:bg-gray-700 p-2 group">
 
             @switch($icon)
                 @case('chart-pie')
                     <x-heroicon-s-chart-pie class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" aria-hidden="true" fill="currentColor" />
                     @break
 
-                @case('squares-2x2')
-                    <x-heroicon-s-squares-2x2 class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" aria-hidden="true" fill="currentColor" />
+                @case('user-group')
+                    <x-heroicon-s-user-group  class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" aria-hidden="true" fill="currentColor" />
                     @break
 
                 @case('star')

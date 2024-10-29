@@ -25,29 +25,30 @@ class Login extends Component
 
     public function rules()
     {
+        // Determine login type based on the format of $this->username
         $loginType = filter_var($this->username, FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
+
         return [
-            $loginType => ['required','exists:users,'.$loginType],
+            'username' => ['required', 'exists:users,' . $loginType],
             'password' => 'required',
         ];
     }
-    public function validationAttributes(){
+
+    public function validationAttributes()
+    {
+        // Define validation messages for the dynamic attribute names
         $loginType = filter_var($this->username, FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
+        
         return [
-            $loginType => __('auth.'.$loginType),
-            'password' => __('auth.auth_password')
+            'username' => __('auth.' . $loginType),
+            'password' => __('auth.auth_password'),
         ];
     }
 
     public function updated($propertyName)
     {
-        
-        $loginType = filter_var($this->username, FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
-        if(in_array($loginType, ['username','email']) and $propertyName == 'username'){
-            $this->validateOnly($loginType);
-        }else{
-            $this->validateOnly($propertyName);
-        } 
+        // Use $propertyName directly in validateOnly
+        $this->validateOnly($propertyName);
     }
 
     public function submitLogin()

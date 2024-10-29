@@ -1,11 +1,10 @@
 <div class="min-h-screen bg-gray-100 dark:bg-gray-900 flex items-center justify-center relative">
-    <x-error/>    
-    
+    <x-error/>        
     <div class="w-full max-w-md" wire:loading.remove wire:target='submitLogin'>
         <div class="bg-white dark:bg-gray-800 rounded-md shadow-md p-6 ">
             
             <h2 class="text-2xl font-bold text-gray-800 dark:text-gray-100 text-center mb-6">{{__('auth.login')}}</h2>
-                <div class="form">                
+                <form wire:keydown.enter="submitLogin" class="form">                
                     <div class="mb-4">
                         <label for="login" class="block text-sm font-medium text-gray-700 dark:text-gray-300">{{__('auth.username')}}/{{__('auth.email')}}</label>
                         <input type="text" wire:model.blur="username" id="login"  autocomplete="off"
@@ -35,12 +34,12 @@
                         @endif
                     </div>
 
-                    <button wire:click.prevent="submitLogin"
+                    <button wire:click.prevent="submitLogin" 
                         class="w-full bg-blue-600 hover:bg-blue-700 text-white dark:bg-blue-500 dark:hover:bg-blue-600 font-bold py-2 px-4 rounded-md active:scale-95">
                         {{__('auth.login')}}
                     </button>
                     @error('error') <span class="text-red-500 text-sm">{{ $message }}</span> @enderror
-                </div>
+                </form>
         </div>
     </div>
 
