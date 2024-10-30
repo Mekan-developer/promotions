@@ -4,7 +4,11 @@
 return [
 
     'dashboard' => 'Панель',
-    'suppliers' => 'Поставщики',
+    'suppliers' => [
+        'trans' => 'Поставщики',
+        'create' => 'Создать поставщиков',
+        'update' => 'Обновление поставщиков'
+    ],
     'promotions' => 'Акции',
     'registrations' => 'Регистрации',
     'administrators' => 'Администраторы'

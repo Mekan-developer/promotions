@@ -3,6 +3,7 @@
  import './flowbite';
  import './datePicker';
 
+ 
 document.addEventListener('livewire:navigated', () => {
     initFlowbite();
 })

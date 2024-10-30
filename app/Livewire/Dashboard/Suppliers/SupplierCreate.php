@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Dashboard\Supliers;
+namespace App\Livewire\Dashboard\Suppliers;
 
 use App\Models\Supplier;
 use Livewire\Component;
@@ -44,6 +44,6 @@ class SupplierCreate extends Component
 
     public function render()
     {
-        return view('livewire.dashboard.supliers.supplier-create');
+        return view('livewire.dashboard.suppliers.supplier-create');
     }
 }

@@ -4,7 +4,12 @@
 return [
 
     'dashboard' => 'Panel',
-    'suppliers' => 'Üpjün edijiler',
+    
+    'suppliers' => [
+        'trans' => 'Üpjün edijiler',
+        'create' => 'Создать поставщиков',
+        'update' => 'Обновление поставщиков'
+    ],
     'promotions' => 'Arzanladyşlar',
     'registrations' => 'Registrasiýa',
     'administrators' => 'Administratorlar'

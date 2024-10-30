@@ -5,7 +5,7 @@ namespace App\Livewire\Dashboard\Includes;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
-class Navbar extends Component
+class NavBar extends Component
 {
     public $isModalOpen = false;
     public $username;
@@ -28,7 +28,7 @@ class Navbar extends Component
         session()->invalidate(); // Invalidate the current session
         session()->regenerateToken(); // Regenerate the CSRF token for security
 
-        return redirect('/'); // Redirect to home or login page
+        return redirect('/');
     }
 
     public function render()

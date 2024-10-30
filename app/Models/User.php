@@ -48,6 +48,11 @@ class User extends Authenticatable
         ];
     }
 
+    public function roles() {
+        return $this->belongsToMany(Role::class);
+    }
+    
+
     public function getEmailForPasswordReset()
     {
         return $this->email; // or whatever your email field is called
