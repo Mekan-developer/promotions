@@ -30,23 +30,22 @@
                         <input type="password" wire:model.blur="password" id="password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter password" required />
                         @error('password') <span class="error text-red-600">{{ $message }}</span> @enderror
                     </div>
-
                     <div>
                         <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Roles</label>
                         <div class="flex gap-4">
-                            <label wire:click="toggleRole('2')" class="cursor-pointer">
-                                <input type="checkbox" wire:model="roles" value="2" class="hidden" />
-                                <span class="inline-block px-4 py-2 border border-gray-300 rounded-md text-gray-900 dark:text-white dark:border-gray-600" :class="{ 'bg-blue-500 text-white': roles.includes('admin') }">Admin</span>
+                            <label wire:click="toggleRole('admin')" class="cursor-pointer">
+                                <input type="radio" wire:model="roles" value="admin" class="hidden"/>
+                                <span class="{{ ($role_is == 'admin') ? 'bg-blue-700 hover:bg-blue-800 text-white': 'hover:bg-gray-700 text-gray-900 dark:text-white border-gray-300  dark:border-gray-600' }} transition-all active:scale-[0.95] inline-block px-4 py-2 border rounded-md ">Admin</span>
                             </label>
                             
-                            <label wire:click="toggleRole('3')" class="cursor-pointer">
-                                <input type="checkbox" wire:model="roles" value="3" class="hidden" />
-                                <span class="inline-block px-4 py-2 border border-gray-300 rounded-md text-gray-900 dark:text-white dark:border-gray-600" :class="{ 'bg-blue-500 text-white': roles.includes('editor') }">Editor</span>
+                            <label wire:click="toggleRole('editor')" class="cursor-pointer">
+                                <input type="radio" wire:model="roles" value="editor" class="hidden"/>
+                                <span class="{{ ($role_is == 'editor') ? 'bg-blue-700 hover:bg-blue-800 text-white': 'hover:bg-gray-700 text-gray-900 dark:text-white border-gray-300  dark:border-gray-600' }} transition-all active:scale-[0.95] inline-block px-4 py-2 border rounded-md ">Editor</span>
                             </label>
                             
-                            <label wire:click="toggleRole('4')" class="cursor-pointer">
-                                <input type="checkbox" wire:model="roles" value="4" />
-                                <span :class="[roles.includes('4') ? 'bg-blue-500 text-white' : '']" class="inline-block px-4 py-2 border border-gray-300 rounded-md text-gray-900 dark:text-white dark:border-gray-600" >Viewer</span>
+                            <label wire:click="toggleRole('viewer')" class="cursor-pointer">
+                                <input type="radio" wire:model="roles" value="viewer" class="hidden"/>
+                                <span class="{{ ($role_is == 'viewer') ? 'bg-blue-700 hover:bg-blue-800 text-white': 'hover:bg-gray-700 text-gray-900 dark:text-white border-gray-300  dark:border-gray-600' }} transition-all active:scale-[0.95] inline-block px-4 py-2 border rounded-md ">Viewer</span>
                             </label>
                         </div>
                         @error('roles') <span class="error text-red-600">{{ $message }}</span> @enderror

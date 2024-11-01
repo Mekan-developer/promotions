@@ -3,6 +3,7 @@
 namespace App\Livewire\Dashboard\Promotions;
 
 use App\Models\Promotion;
+use Illuminate\Support\Facades\Gate;
 use Livewire\Attributes\Lazy;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -19,9 +20,14 @@ class PromotionIndex extends Component
     }
 
     public function changeStatus($id){
-        $promotion = Promotion::findOrFail($id);
-        $promotion->status = !$promotion->status;
-        $promotion->save();
+        if (Gate::allows('edit')) {
+            $promotion = Promotion::findOrFail($id);
+            $promotion->status = !$promotion->status;
+            $promotion->save();
+        } else {
+            session()->flash('alert-message','Вы не можете редактировать статус, вам необходимо разрешение');
+            return redirect()->route('promotions.index');
+        }
     }
 
     public function render()

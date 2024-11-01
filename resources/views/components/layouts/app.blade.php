@@ -18,11 +18,13 @@
     @endguest
 
     @auth
-        <x-alerts.success-messages/>
+        
 
         <livewire:dashboard.includes.nav-bar />
         <livewire:dashboard.includes.side-bar />
-        <div class="p-4 sm:ml-64 sm:w-[calc(100%-256px)] flex justify-center overflow-hidden overflow-y-auto h-[calc(100vh-76px)] mt-[64px]">
+        <div class="p-4 sm:ml-64 sm:w-[calc(100%-256px)] flex flex-col items-center overflow-hidden overflow-y-auto h-[calc(100vh-76px)] mt-[64px] relative">
+            <x-alerts.alert-messages />
+            <x-alerts.success-messages/>
             {{ $slot }}
         </div>
     @endauth

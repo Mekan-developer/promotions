@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('roles', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->unique(); // Role name (e.g., admin, editor)
+            $table->enum('name',  ['super admin', 'admin', 'editor','viewer'])->default('viewer');; // Role name (e.g., admin, editor)
             $table->timestamps();
         });
     }

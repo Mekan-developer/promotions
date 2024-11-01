@@ -20,6 +20,7 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
+        'name',
         'username',
         'email',
         'password',
@@ -48,9 +49,16 @@ class User extends Authenticatable
         ];
     }
 
-    public function roles() {
+    public function roles() 
+    {
         return $this->belongsToMany(Role::class);
     }
+
+    public function getRoleName()
+    {
+        return $this->roles()->first()->name ?? null;
+    }
+
     
 
     public function getEmailForPasswordReset()

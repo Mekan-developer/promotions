@@ -6,6 +6,7 @@ use App\Livewire\Auth\Passwords\Reset as PasswordReset;
 use App\Livewire\Dashboard\Administrators\AdministratorCreate;
 use App\Livewire\Dashboard\Administrators\AdministratorEdit;
 use App\Livewire\Dashboard\Administrators\AdministratorIndex;
+use App\Livewire\Dashboard\AppUsers\UserIndex;
 use App\Livewire\Dashboard\Home;
 use App\Livewire\Dashboard\Promotions\PromotionCreate;
 use App\Livewire\Dashboard\Promotions\PromotionIndex;
@@ -42,8 +43,10 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/promotions/{promotion}/edit', PromotionUpdate::class)->name('promotions.edit');
 
     Route::get('/administrators', AdministratorIndex::class)->name('administrators.index');
-    Route::get('/administrators/create', AdministratorCreate::class)->name('administrator.create');
-    Route::get('/administrators/{user}/edit', AdministratorEdit::class)->name('administrator.edit');
+    Route::get('/administrators/create', AdministratorCreate::class)->name('administrators.create');
+    Route::get('/administrators/{user}/edit', AdministratorEdit::class)->name('administrators.edit');
+
+    Route::get('/app-users', UserIndex::class)->name('users.index');
 
 });
 
