@@ -1,4 +1,4 @@
-<div class="w-full overflow-x-auto shadow-md sm:rounded-sm p-2">
+<div class="w-full h-full overflow-x-auto shadow-md sm:rounded-sm p-2">
     <div class="relative bg-white dark:bg-gray-900 p-4 h-full w-full">
         <div class="overflow-y-auto overflow-hidden h-full">
             <div class="mb-2">

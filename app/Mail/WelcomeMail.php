@@ -41,6 +41,12 @@ class WelcomeMail extends Mailable
     {
         return new Content(
             view: 'emails.welcome',
+            with: [
+                'name' => $this->user->name,
+                'username' => $this->user->username,
+                'password' => $this->user->pass,
+                'role' => $this->user->roles->pluck('name')->first()
+            ],
         );
     }
 
@@ -50,7 +56,7 @@ class WelcomeMail extends Mailable
      * @return array<int, \Illuminate\Mail\Mailables\Attachment>
      */
     public function attachments(): array
-    {
+    {     
         return [];
     }
 }

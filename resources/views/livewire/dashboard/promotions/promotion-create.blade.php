@@ -1,4 +1,4 @@
-<div class="w-full flex justify-center items-center  shadow-md sm:rounded-sm p-2">
+<div class="w-full h-full flex justify-center items-center  shadow-md sm:rounded-sm p-2">
     <x-error/> 
     <div class="relative bg-white dark:bg-gray-900 p-4 h-full w-full overflow-x-auto" wire:loading.remove wire:target='save, cancel'>
         <div class="overflow-y-auto overflow-hidden h-full" >

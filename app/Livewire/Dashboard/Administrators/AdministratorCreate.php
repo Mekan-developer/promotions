@@ -2,10 +2,14 @@
 
 namespace App\Livewire\Dashboard\Administrators;
 
+use App\Mail\WelcomeMail;
 use App\Models\RoleUser;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use Livewire\Component;
+use App\Events\UserRegistered;
+use Event;
 
 class AdministratorCreate extends Component
 {
@@ -37,12 +41,7 @@ class AdministratorCreate extends Component
             'roles' => 'required'
         ]);
 
-        // User::register([
-        //     'username' => $this->username,
-        //     'email' => $this->email,
-        //     'password' => Hash::make($this->password),
-        // ]);
-        // Logic to create user with roles
+
         $user = User::register([
             'name' => $this->name,
             'username' => $this->username,
@@ -50,7 +49,11 @@ class AdministratorCreate extends Component
             'password' => Hash::make($this->password)
         ]);
 
+        $user['pass'] = $this->password;
         $user->roles()->attach($this->role_id($this->role_is));
+
+        // Mail::to($user->email)->send(new WelcomeMail($user));
+        event(new UserRegistered($user));
  
 
         session()->flash('message', 'Administrator created successfully.');

@@ -5,9 +5,11 @@ namespace App\Livewire\Dashboard\Administrators;
 use App\Models\User;
 use Illuminate\Support\Facades\Gate;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class AdministratorIndex extends Component
 {
+    use WithPagination;
     public $search = '';
 
     public function render()
@@ -24,7 +26,7 @@ class AdministratorIndex extends Component
                         ->orWhere('username', 'like', '%' . $this->search . '%')
                         ->orWhere('email', 'like', '%' . $this->search . '%');
                 })
-                ->get();
+                ->paginate(10);
     
         return view('livewire.dashboard.administrators.administrator-index', compact('users'));
     }
@@ -42,5 +44,9 @@ class AdministratorIndex extends Component
         // }
         // User::findOrFail($userId)->delete();
         // session()->flash('message', 'User deleted successfully.');
+    }
+
+    public function placeholder(){
+        return view('livewire.placeholders.indexPage');
     }
 }

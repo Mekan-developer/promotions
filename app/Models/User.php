@@ -6,8 +6,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use App\Events\UserRegistered;
-use Event;
+
 
 class User extends Authenticatable
 {
@@ -68,9 +67,6 @@ class User extends Authenticatable
 
     public static function register($attributes){
         $user = static::create($attributes);
-
-        event(new UserRegistered($user));
-
         return $user;
 
     }

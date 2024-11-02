@@ -1,4 +1,4 @@
-<div class="w-full flex justify-center items-center p-2 rounded-sm">
+<div class="w-full h-full flex justify-center items-center p-2 rounded-sm">
     <div class="relative bg-white dark:bg-gray-900 p-6 h-full rounded-sm overflow-x-auto w-full">
         <div class="pb-4 flex justify-between">
             <div class="relative mt-1">

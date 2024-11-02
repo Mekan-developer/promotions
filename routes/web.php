@@ -6,6 +6,7 @@ use App\Livewire\Auth\Passwords\Reset as PasswordReset;
 use App\Livewire\Dashboard\Administrators\AdministratorCreate;
 use App\Livewire\Dashboard\Administrators\AdministratorEdit;
 use App\Livewire\Dashboard\Administrators\AdministratorIndex;
+use App\Livewire\Dashboard\AdminUser\ProfileEdit;
 use App\Livewire\Dashboard\AppUsers\UserIndex;
 use App\Livewire\Dashboard\Home;
 use App\Livewire\Dashboard\Promotions\PromotionCreate;
@@ -47,6 +48,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/administrators/{user}/edit', AdministratorEdit::class)->name('administrators.edit');
 
     Route::get('/app-users', UserIndex::class)->name('users.index');
+    Route::get('/profile', ProfileEdit::class)->name('profile.edit');
 
 });
 

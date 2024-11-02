@@ -1,4 +1,4 @@
-<nav class="fixed top-0 left-0 z-30 w-full border-b bg-gray-800 border-gray-700">
+<nav class="fixed top-0 left-0 z-[50] w-full border-b bg-gray-800 border-gray-700">
     <div class="px-3 py-3 lg:px-5 lg:pl-3">
         <div class="flex items-center justify-between">
             <div class="flex items-center justify-start rtl:justify-end">
@@ -35,8 +35,8 @@
                             </p>
                         </div>
                         <ul class="py-1" role="none">
-                            <li  data-modal-target="popup-modal" data-modal-toggle="popup-modal" >
-                                <a href="#" class="block px-4 py-2 text-sm  text-gray-300 hover:bg-gray-600 hover:text-white" role="menuitem">Profile</a>
+                            <li >
+                                <a href="{{route('profile.edit')}}" class="block px-4 py-2 text-sm  text-gray-300 hover:bg-gray-600 hover:text-white" role="menuitem">Profile</a>
                             </li>
                             <li>
                                 <a wire:click="logOut" wire:navigate class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-600 hover:text-white cursor-pointer" role="menuitem">Sign out</a>
@@ -48,5 +48,4 @@
             </div>
         </div>
     </div>
-    <x-dashboard.profile-edit-popup :$showPassword/>
 </nav>
