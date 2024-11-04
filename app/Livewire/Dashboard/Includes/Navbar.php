@@ -12,10 +12,7 @@ class NavBar extends Component
     public $email;
     public $password='', $showPassword = false;
 
-    public function toggleModal()
-    {
-        $this->isModalOpen = !$this->isModalOpen;
-    }
+
 
     public function togglePasswordVisibility()
     {

@@ -52,6 +52,15 @@ Route::middleware(['auth'])->group(function () {
 
 });
 
+Route::get('/run-build', function () {
+    exec('npm run build', $output, $returnCode);
+
+    if ($returnCode !== 0) {
+        return 'Build failed: ' . implode("\n", $output);
+    }
+
+    return 'Build completed successfully: ' . implode("\n", $output);
+});
 
 Route::fallback(function () {
     return redirect('/login');

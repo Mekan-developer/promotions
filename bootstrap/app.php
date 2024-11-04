@@ -18,7 +18,9 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->web(append: [
             SetLocale::class
         ]);
-    })
+    })->withCommands([
+        \App\Console\Commands\RunNpmBuild::class,
+    ])
     ->withExceptions(function (Exceptions $exceptions) {
         //
     })->create();

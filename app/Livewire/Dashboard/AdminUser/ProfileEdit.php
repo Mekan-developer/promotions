@@ -52,6 +52,6 @@ class ProfileEdit extends Component
         auth()->user()->update($data);
 
         session()->flash('message', 'Your profile updated successfully.');
-        return redirect()->route('profile.index');
+        return redirect()->route('profile.edit');
     }
 }
