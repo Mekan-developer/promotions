@@ -33,7 +33,6 @@ class AdministratorIndex extends Component
     
     public function destroy($userId)
     {
-        $this->authorize('access.delete');
 
         $userToDelete = User::findOrFail($userId);
         $userToDelete->delete();

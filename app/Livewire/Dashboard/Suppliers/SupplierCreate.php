@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Dashboard\Suppliers;
 
+use App\Events\SupplierRegistered;
 use App\Models\Supplier;
 use Livewire\Component;
 
@@ -34,6 +35,8 @@ class SupplierCreate extends Component
             'brands' => $this->brands,
         ]);
 
+        event(new SupplierRegistered($supplier));
+        
         session()->flash('message', 'Supplier created successfully.');
 
         // Reset form fields

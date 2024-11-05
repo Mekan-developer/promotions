@@ -2,7 +2,9 @@
     <div class="relative bg-gray-200 dark:bg-gray-900 p-6 h-full rounded-sm overflow-x-auto w-full">
         <div  class="pb-4 flex justify-between">
             <x-dashboard.index-search />
-            <a href="{{route('promotions.create')}}" wire:navigate class="active:scale-[0.75] text-white shadow-md bg-gray-400 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-sm text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">Add promotion</a>           
+            @can('can-create')                
+                <a href="{{route('promotions.create')}}" wire:navigate class="active:scale-[0.75] text-white shadow-md bg-gray-400 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-sm text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">Add promotion</a>           
+            @endcan
         </div>
         <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 p-2 mb-8">
             <thead class="text-xs text-gray-700 uppercase bg-gray-400 dark:bg-gray-700 dark:text-gray-400">

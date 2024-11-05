@@ -36,16 +36,16 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', Home::class)->name('dashboard.home');
 
     Route::get('/suppliers', SupplierIndex::class)->name('suppliers.index');
-    Route::get('/suppliers/create', SupplierCreate::class)->name('suppliers.create');
-    Route::get('/suppliers/{supplier}/edit', SupplierUpdate::class)->name('suppliers.edit');
+    Route::get('/suppliers/create', SupplierCreate::class)->middleware('can:can-create')->name('suppliers.create');
+    Route::get('/suppliers/{supplier}/edit', SupplierUpdate::class)->middleware('can:edit')->name('suppliers.edit');
 
     Route::get('/promotions', PromotionIndex::class)->name('promotions.index');
-    Route::get('/promotions/create', PromotionCreate::class)->name('promotions.create');
-    Route::get('/promotions/{promotion}/edit', PromotionUpdate::class)->name('promotions.edit');
+    Route::get('/promotions/create', PromotionCreate::class)->middleware('can:can-create')->name('promotions.create');
+    Route::get('/promotions/{promotion}/edit', PromotionUpdate::class)->middleware('can:edit')->name('promotions.edit');
 
     Route::get('/administrators', AdministratorIndex::class)->name('administrators.index');
-    Route::get('/administrators/create', AdministratorCreate::class)->name('administrators.create');
-    Route::get('/administrators/{user}/edit', AdministratorEdit::class)->name('administrators.edit');
+    Route::get('/administrators/create', AdministratorCreate::class)->middleware('can:can-create')->name('administrators.create');
+    Route::get('/administrators/{user}/edit', AdministratorEdit::class)->middleware('can:edit')->name('administrators.edit');
 
     Route::get('/app-users', UserIndex::class)->name('users.index');
     Route::get('/profile', ProfileEdit::class)->name('profile.edit');
