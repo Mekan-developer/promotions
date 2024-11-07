@@ -21,8 +21,6 @@
      
         <span x-show="open">Some Other Content...</span>
     </div>
-
-
     {{--  --}}
 
     <div x-data>

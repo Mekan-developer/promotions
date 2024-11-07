@@ -1,5 +1,5 @@
 <div class="p-2 rounded-md flex flex-col gap-10 flex-1 w-full">
-
+    <h1 class=" font-bold">Dashboard</h1>
     <div class="flex gap-10">
         <div class="max-w-sm w-full bg-white rounded-lg shadow dark:bg-gray-800 p-4 md:p-6 flex-1">
             <div class="flex justify-between pb-4 mb-4 border-b border-gray-200 dark:border-gray-700">

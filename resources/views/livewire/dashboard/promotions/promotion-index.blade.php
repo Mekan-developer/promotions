@@ -49,7 +49,7 @@
                         <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                             {{$promotion->id}}
                         </th>
-                        <th class="px-6 py-4">
+                        <th class="px-6 py-4 ">
                             {{$promotion->title}}
                         </th>
                         <td class="px-6 py-4">
